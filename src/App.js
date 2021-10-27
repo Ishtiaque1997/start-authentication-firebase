@@ -19,12 +19,16 @@ function App() {
  const handleGoogleSignIn=()=>{
   signInWithPopup(auth, googleProvider)
   .then((result) => {
+
+    //destructure from result
     const{displayName,email,photoURL}=result.user;
+    //set the data in variable
     const loggedInUser={
       name:displayName,
       email:email,
       photo:photoURL
     }
+    /*set in state*/
     setUser(loggedInUser)
   })
   }
@@ -33,11 +37,14 @@ function App() {
  const handleGithubSignIn=()=>{
  signInWithPopup(auth, githubProvider)
   .then((result) => {
+    //destructure from result
     const {email,photoURL} = result.user;
+    //set the data in variable
     const loggedInUser={
       email:email,
       photo:photoURL
     }
+    /*set in state*/
     setUser(loggedInUser)
   })
   }
